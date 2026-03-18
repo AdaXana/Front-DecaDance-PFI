@@ -1,0 +1,36 @@
+/* adapatar estilos segun form de cada pantalla*/
+
+/* .fieldContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.label {
+    font-family: ;
+    font:;
+    color:;
+    text-align: left; 
+    padding-left: 10px;
+}
+
+.mainInput {
+    border: ; 
+    border-radius: 20px;
+    padding: 12px 15px;
+    background-color: ;
+    outline: none;
+    font-size: rem;
+    transition: border-color 0.3s ease;
+}
+
+.mainInput::placeholder {
+    color: ;
+    font-size: rem;
+}
+
+.error{
+  color: red;
+  margin-left: 10px;
+} */
