@@ -107,20 +107,3 @@
 .registerLink:hover {
     text-shadow: var(--glow-fuchsia);
 }
-
-.eyeIconContainer {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.eyeIcon {
-    color: #8C8C8C;
-    font-size: 20px;
-    transition: var(--transition-soft);
-}
-
-.eyeIcon:hover {
-    color: var(--color-neon-fuchsia);
-}

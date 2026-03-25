@@ -17,3 +17,57 @@
 input:checked::after{
     font-size: 25px !important;
 } */
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.nativeCheckbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.customCheckbox {
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid var(--color-neon-fuchsia);
+    border-radius: 4px;
+    transition: var(--transition-soft);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nativeCheckbox:checked~.customCheckbox {
+    background-color: var(--color-neon-fuchsia);
+    box-shadow: var(--glow-fuchsia);
+}
+
+.customCheckbox:after {
+    content: "";
+    display: none;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.nativeCheckbox:checked~.customCheckbox:after {
+    display: block;
+}
+
+.label {
+    font-family: var(--font-primary);
+    font-size: var(--text-mini);
+    color: var(--color-text-main);
+    user-select: none;
+}
