@@ -1,0 +1,41 @@
+.sectionContainer {
+  width: 100%;
+  padding: 24px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.sectionTitle {
+  color: var(--color-text-main);
+  font-size: var(--text-h5);
+  font-weight: var(--weight-bold);
+  margin: 0;
+}
+
+.seeAllLink {
+  color: var(--color-neon-fuchsia);
+  font-size: 14px;
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cardsGallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+
+.cardsGallery::-webkit-scrollbar {
+  display: none;
+}

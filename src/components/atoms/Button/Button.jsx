@@ -1,23 +1,28 @@
 import styles from './button.module.css';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
-const Button = ({ text, BtnClass, path, type = "button", onClick, disabled }) => {
+const Button = ({ text, BtnClass, path, type = "button", onClick, disabled, icon }) => {
   const navigate = useNavigate();
 
-   const handleClick = (e) => {
-    if (onClick){
+  const handleClick = (e) => {
+    if (onClick) {
       onClick(e);
     }
-    else if (path){
+    else if (path) {
       navigate(path);
     }
-   }
+  };
+
   return (
     <button
-      type ={type}
+      type={type}
       className={styles[BtnClass]}
       onClick={handleClick}
-      disabled={disabled}>{text}</button>
+      disabled={disabled}
+    >
+      {icon && <span className={styles.iconWrapper}>{icon}</span>}
+      {text}
+    </button>
   );
 };
 

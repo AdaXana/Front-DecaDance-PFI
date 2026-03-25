@@ -1,0 +1,14 @@
+.logo {
+    height: auto;
+    display: block;
+}
+
+.logoLarge {
+    width: 350px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+
+.logoSmall {
+    width: 150px;
+}

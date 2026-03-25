@@ -1,8 +1,11 @@
+import RoomsSection from "./../../components/organisms/RoomsSection/RoomsSection";
+import HeroHome from "./../../components/organisms/HeroHome/HeroHome";
+
 const Home = () => {
-    return(
+    return (
         <>
-            <p>Home</p>
-            {/* <ComponenteX/> Componentes que toquen */}
+            <HeroHome/>
+            <RoomsSection/>
         </>
     )
 }

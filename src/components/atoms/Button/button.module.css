@@ -1,19 +1,79 @@
-/* button {
-  background: ;
-  width: ;
-  height: ;
+.primaryBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ;
+  padding: 0px 32px;
+  width: 100%;
+  max-width: 320px;
+  height: 64px;
+  background: var(--color-neon-orange);
+  box-shadow: var(--glow-orange);
+  border-radius: var(--radius-pill);
   border: none;
-  font-size: ;
-  color: ;
+  color: var(--color-text-main);
+  font-family: var(--font-primary);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: 0.3s ease;
-  border-radius: 20px;
-} */
+  transition: var(--transition-soft);
+}
 
-/* añadire las clases segun el atomi mas tarde, asi guardo la estructura basica*/
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 0px 30px var(--color-neon-orange);
+}
+
+.primaryBtn:active {
+  transform: translateY(0);
+}
+
+.primaryBtn:disabled {
+  background: var(--color-text-muted);
+  color: var(--color-bg-void);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.5;
+}
+
+.socialBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  width: 100%;
+  background-color: var(--color-bg-glass-dark);
+  border: var(--border-glass);
+  border-radius: var(--radius-md);
+  color: var(--color-text-main);
+  font-family: var(--font-primary);
+  font-size: var(--text-error);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: var(--transition-soft);
+}
+
+.socialBtn:hover {
+  background-color: var(--color-bg-void);
+  box-shadow: var(--glow-fuchsia);
+}
+
+.socialBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.socialBtn:disabled:hover {
+  background-color: var(--color-bg-glass-dark);
+  box-shadow: none;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}

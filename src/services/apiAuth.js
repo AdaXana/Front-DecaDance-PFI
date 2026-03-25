@@ -1,34 +1,42 @@
 import api from "./api";
 
 const authService = {
+
   register: async (data) => {
-    const response = await api.post("/users/register", data);
+    const response = await api.post("/auth/register", data);
     return response.data;
   },
 
   login: async (data) => {
-    const response = await api.post("/users/login", data);
+    const response = await api.post("/auth/login", data);
+    return response;
+  },
+
+  getAllUsers: async () => {
+    const response = await api.get("/users");
     return response.data;
   },
 
-  getProfile: async (id) => {
-    const response = await api.get(`/users/profile/${id}`);
+  getUserById: async (id) => {
+    const response = await api.get(`/users/${id}`);
     return response.data;
   },
 
-  updateUserName: async (id, data) => {
-    const response = await api.patch(`/users/name/${id}`, data);
+  updateUsername: async (id, newUsername) => {
+    const response = await api.patch(`/users/username/${id}`, { username: newUsername });
     return response.data;
   },
 
-  updateUserAvatar: async (id, data) => {
-    const response = await api.patch(`/users/avatar/${id}`, data);
+  updateUserImage: async (id, newImageUrl) => {
+    const response = await api.patch(`/users/image/${id}`, { image: newImageUrl });
     return response.data;
   },
 
   deleteUser: async (id) => {
-    await api.delete(`/users/${id}`);
+    const response = await api.delete(`/users/${id}`);
+    return response.data;
   },
+
 };
 
 export default authService;

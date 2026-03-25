@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const Modal = ({ message, btnText, btnPath, btnClass }) => {
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth<1000); 
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 1000); // ajustar segun mis mockups en la funcion
@@ -20,12 +20,12 @@ const Modal = ({ message, btnText, btnPath, btnClass }) => {
         <div className={styles.content}>
           <p className={styles.message}>{message}</p>
         </div>
-        
+
         <div className={styles.actions}>
-          <Button 
-            text={btnText} 
-            path={btnPath} 
-            BtnClass={finalBtnClass} 
+          <Button
+            text={btnText}
+            path={btnPath}
+            BtnClass={finalBtnClass}
           />
         </div>
       </div>

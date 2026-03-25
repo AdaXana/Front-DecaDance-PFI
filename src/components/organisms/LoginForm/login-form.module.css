@@ -1,89 +1,126 @@
- /*adaptar a estilo DecaDance neones etc usando el global en index.css al maximo*/
- 
- /* .container {
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+}
+
+.formWrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 40px auto; 
-    padding: 2rem; 
-   
-
 }
 
 .title {
-    max-width: 100%; 
-    font-size: 2.5rem ;
+    color: var(--color-text-main);
+    text-align: left;
+    font-size: 60px;
+    font-weight: var(--weight-bold);
+    margin-bottom: 3rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.errorText {
+    color: var(--color-neon-orange);
     text-align: center;
-    margin: 2rem ; 
-    color: var(--text-shadow);
+    margin-bottom: 1rem;
+    font-size: var(--text-error);
+    background-color: rgba(255, 107, 0, 0.1);
+    padding: 10px;
+    border-radius: var(--radius-sm);
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 30px; 
-    align-items: center; 
+.forgotPassword {
+    display: block;
+    text-align: right;
+    color: var(--color-neon-fuchsia);
+    font-size: var(--text-mini);
+    text-decoration: none;
+    margin-top: -8px;
+    margin-bottom: 32px;
+    transition: var(--transition-soft);
+}
+
+.forgotPassword:hover {
+    text-shadow: var(--glow-fuchsia);
+}
+
+.submitContainer {
     width: 100%;
-}
-
- .fields {
-    width: 100%;
-    max-width: 450px; 
-    display: flex;
-    flex-direction: column;
-    gap: 25px; 
-    text-align: left; 
-    margin-bottom: 20px;
-}
-
-
-.actions {
     display: flex;
     justify-content: center;
-    gap: 20px; 
-    margin: 20px auto 0;
-    padding: 8px, 16px;
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 20px;
-    
-}  
-
-.actions button {
-  
-    width: 120px; 
-    height: 45px; 
-    padding: 8px; 
-    font-family: 'Syne', sans-serif;
-    font-size: 16px !important; 
-    font-weight: normal;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 480px;
-    margin-bottom: 12vh; 
-
-  }
-
+.socialDivider {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 3rem 0 1rem;
 }
 
-@media (min-width: 1000px){
-.container{
-    max-width: 600px;
-    padding: 2rem;
-    margin-bottom: 30px;
-    margin-top: 30px;
-
-    min-height: auto;
+.socialDivider::before,
+.socialDivider::after {
+    content: '';
+    flex: 1;
+    border-bottom: var(--border-glass);
 }
 
-.actions {
-    display: flex;      
-    gap: 150px;         
+.socialDivider::before {
+    margin-right: 1.5em;
+}
+
+.socialDivider::after {
+    margin-left: 1.5em;
+}
+
+.socialButtons {
+    display: flex;
+    gap: 1rem;
     justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-} */
+    margin-top: 1rem;
+}
+
+.registerContainer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: var(--text-mini);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
+}
+
+.registerLink {
+    color: var(--color-neon-fuchsia);
+    text-decoration: none;
+    font-weight: var(--weight-bold);
+    margin-left: 8px;
+    transition: var(--transition-soft);
+}
+
+.registerLink:hover {
+    text-shadow: var(--glow-fuchsia);
+}
+
+.eyeIconContainer {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.eyeIcon {
+    color: #8C8C8C;
+    font-size: 20px;
+    transition: var(--transition-soft);
+}
+
+.eyeIcon:hover {
+    color: var(--color-neon-fuchsia);
+}

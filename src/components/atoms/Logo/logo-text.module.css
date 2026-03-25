@@ -1,0 +1,16 @@
+.logoLink {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logoImg {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logoLink:hover .logoImg {
+  transform: scale(1.05);
+}

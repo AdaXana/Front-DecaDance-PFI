@@ -1,125 +1,116 @@
-// import { useState } from "react";
-// import styles from "./login-form.module.css";
-// import FormField from '../../molecules/FormField/FormField';
-// import Button from "../../atoms/Button/Button";
-// import userService from "../../../service/apiAccount";
-// import { useNavigate } from "react-router-dom";
-// import useAuth from "../../../hooks/useAuth";
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+import authService from '../../../services/apiAuth';
+import FormField from '../../molecules/FormField/FormField';
+import Button from '../../atoms/Button/Button';
+import styles from './login-form.module.css';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
-// const validate = (form) => {
-//   const errors = {};
-//   if (!form.email.trim()) {
-//     errors.email = "Email is required";
-//   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-//     errors.email = "Invalid email format";
-//   }
-//   if (!form.password.trim()) {
-//     errors.password = "Password is required";
-//   }
-//   return errors;
-// };
+const LoginForm = () => {
+    const [credentials, setCredentials] = useState({ username: '', password: '' });
+    const [error, setError] = useState(null);
+    const [showPassword, setShowPassword] = useState(false);
 
-// const LoginForm = () => {
-//   const navigate = useNavigate();
-//   const { login } = useAuth();
-//   const [touched, setTouched] = useState({});
-//   const [serverErrors, setServerErrors] = useState({});
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [formData, setFormData] = useState({
-//     email: "",
-//     password: ""
-//   });
+    const { login } = useAuth();
+    const navigate = useNavigate();
 
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData((prev) => ({ ...prev, [name]: value }));
-//     if (serverErrors[name]) {
-//       setServerErrors((prev) => ({ ...prev, [name]: undefined }));
-//     }
-//   };
+    const handleChange = (e) => {
+        setCredentials({
+            ...credentials,
+            [e.target.name]: e.target.value
+        });
+    };
 
-//   const handleBlur = (e) => {
-//     setTouched((prev) => ({ ...prev, [e.target.name]: true }));
-//   };
+    const togglePassword = () => {
+        setShowPassword(!showPassword);
+    };
 
-//   const frontendErrors = validate(formData);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError(null);
+        try {
+            const response = await authService.login(credentials);
+            const authHeader = response.headers['authorization'] || response.headers['Authorization'];
+            const token = authHeader.replace('Bearer ', '');
 
-//   const getError = (field) =>
-//     (touched[field] && frontendErrors[field]) || serverErrors[field];
+            const userData = {
+                username: credentials.username,
+                role: credentials.username === 'admin' ? 'ADMIN' : 'USER'
+            };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setTouched({ email: true, password: true });
-//     if (Object.keys(frontendErrors).length > 0) return;
+            login(userData, token);
+            if (userData.role === 'ADMIN') {
+                navigate('/admin');
+            } else {
+                navigate('/');
+            }
+        } catch (err) {
+            console.error("Error en la petición:", err);
+            setError("Error de conexión o credenciales incorrectas.");
+        }
+    };
 
-//     setIsLoading(true);
-//     try {
-//       const userData = await userService.login(formData);
-//       login(userData);                                      
-//       navigate("/userpanel");/*revisar segun si es desde setupgame o desde /home/login*/ 
-//     } catch (error) {
-//       if (error.response?.status === 400 && error.response?.data) {
-//         setServerErrors(error.response.data);
-//       } else {
-//         setServerErrors({ general: "Invalid email or password" });
-//       }
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
+    return (
+        <section className={styles.container}>
+            <div className={styles.formWrapper}>
+                <h1 className={styles.title}>INICIA<br />SESIÓN</h1>
 
-//   return (
-//     <section className={styles.container}>
-//       <h1 className={styles.title}>Login</h1>
-//       <form className={styles.form} onSubmit={handleSubmit}>
-//         <div className={styles.fields}>
-//           <FormField
-//             label="Email"
-//             name="email"
-//             type="email"
-//             placeholder="Enter your email"
-//             value={formData.email}
-//             onChange={handleChange}
-//             onBlur={handleBlur}
-//             error={getError("email")}
-//             tabIndex={1}
-//             accessKey="e"
-//             aria-label="Email address"
-//           />
-//           <FormField
-//             label="Password"
-//             name="password"
-//             type="password"
-//             placeholder="Enter your password"
-//             value={formData.password}
-//             onChange={handleChange}
-//             onBlur={handleBlur}
-//             error={getError("password")}
-//             tabIndex={2}
-//             accessKey="p"
-//             aria-label="Account Password "
-//           />
-//           {serverErrors.general && (
-//             <div className={styles.error}>{serverErrors.general}</div>
-//           )}
-//         </div>
-//         <div className={styles.actions}>
-//           <Button
-//             type="submit"
-//             text={isLoading ? "Loading..." : "Log In"}
-//             BtnClass="neon"
-//             disabled={isLoading}
-//           />
-//           <Button
-//             type="button"
-//             text="Cancel"
-//             BtnClass="cancel"
-//             path="/home"
-//           />
-//         </div>
-//       </form>
-//     </section>
-//   );
-// };
+                <form onSubmit={handleSubmit}>
+                    {error && <p className={styles.errorText}>{error}</p>}
+                    <FormField
+                        label="Username"
+                        type="text"
+                        id="username"
+                        name="username"
+                        value={credentials.username}
+                        onChange={handleChange}
+                        placeholder="Introduce tu usuario: username"
+                    />
+                    <FormField
+                        label="Contraseña"
+                        type={showPassword ? "text" : "password"}
+                        id="password"
+                        name="password"
+                        value={credentials.password}
+                        onChange={handleChange}
+                        placeholder="Introduce tu contraseña: ********"
+                        icon={
+                            <span onClick={togglePassword} className={styles.eyeIconContainer}>
+                                {showPassword ? (
+                                    <AiOutlineEye className={styles.eyeIcon} title="Ocultar contraseña" />
+                                ) : (
+                                    <AiOutlineEyeInvisible className={styles.eyeIcon} title="Mostrar contraseña" />
+                                )}
+                            </span>
+                        }
+                    />
+                    <Link to="#" className={styles.forgotPassword}>¿Olvidaste tu contraseña?</Link>
+                    <div className={styles.submitContainer}>
+                        <Button
+                            type="submit"
+                            text="INICIAR SESION"
+                            BtnClass="primaryBtn"
+                        />
+                    </div>
+                </form>
 
-// export default LoginForm;
+                <div className={styles.socialDivider}>
+                    <span>O inicia sesión con</span>
+                </div>
+
+                <div className={styles.socialButtons}>
+                    <Button text="Google" BtnClass="socialBtn" disabled={true} />
+                    <Button text="Deezer" BtnClass="socialBtn" disabled={true} />
+                </div>
+
+                <div className={styles.registerContainer}>
+                    ¿NO TIENES CUENTA?
+                    <Link to="/register" className={styles.registerLink}>REGISTRATE</Link>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default LoginForm;

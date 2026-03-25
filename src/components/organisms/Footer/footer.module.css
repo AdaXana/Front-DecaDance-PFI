@@ -1,1 +1,18 @@
-/**/
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg-headerfooter);
+  height: 36px;
+  width: 100%;
+  padding: 0 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: auto;
+}
+
+.footerText {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}

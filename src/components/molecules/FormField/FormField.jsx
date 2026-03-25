@@ -1,22 +1,22 @@
-import styles from './FormField.module.css';
 import Label from '../../atoms/Label/Label';
 import Input from '../../atoms/Input/Input';
+import styles from './form-field.module.css';
 
-const FormField = ({ label, type, placeholder, name, value, onChange, onBlur, error,...inputProps }) => {
+const FormField = ({ label, type, id, name, value, onChange, onBlur, placeholder, icon, error }) => {
   return (
     <div className={styles.fieldContainer}>
-      <Label className={styles.label}>{label}</Label>
-      <Input 
-        type={type} 
+      <Label text={label} htmlFor={id} />
+      <Input
+        type={type}
+        id={id}
         name={name}
-        placeholder={placeholder} 
         value={value}
         onChange={onChange}
         onBlur={onBlur}
-        className={styles.mainInput} 
-         {...inputProps}
+        placeholder={placeholder}
+        icon={icon}
       />
-      <div className={styles.error}>{error || ""}</div>
+      {error && <div className={styles.errorText}>{error}</div>}
     </div>
   );
 };

@@ -1,15 +1,21 @@
 import styles from './input.module.css';
 
-const Input = ({ type = "text", placeholder, className, ...props }) => {
+const Input = ({ type = "text", id, name, value, onChange, onBlur, placeholder, icon }) => {
   return (
-    <input type={type}
-      placeholder={placeholder}
-      className={`${styles.input} ${className || ""}`}
-      {...props}
-    />
+    <div className={styles.inputWrapper}>
+      <input
+        type={type}
+        id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        placeholder={placeholder}
+        className={styles.input}
+      />
+      {icon && <div className={styles.iconContainer}>{icon}</div>}
+    </div>
   );
 };
-
-
 
 export default Input;

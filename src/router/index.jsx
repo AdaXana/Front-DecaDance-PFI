@@ -8,44 +8,55 @@ import Game from "../pages/Game/Game";
 import EndGame from "../pages/EndGame/EndGame";
 import UserPanel from "../pages/UserPanel/UserPanel";
 import Admin from "../pages/Admin/Admin";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      { 
+      {
         index: true,
-        element: <Home /> 
+        element: <Home />
       },
-      { 
-        path: "login", 
-        element: <Login /> 
+      {
+        path: "login",
+        element: <Login />
       },
-      { 
-        path: "register", 
-        element: <Register /> 
+      {
+        path: "register",
+        element: <Register />
       },
-      { 
-        path: "setup", 
-        element: <SetupGame /> 
+      {
+        path: "setup/:id",
+        element: <SetupGame />
       },
-      { 
-        path: "game", 
-        element: <Game /> 
+      {
+        path: "game/:id",
+        element: <Game />
       },
-      { 
-        path: "endgame", 
-        element: <EndGame /> 
+      {
+        path: "endgame/:id",
+        element: <EndGame />
       },
-      { 
-        path: "profile",
-        element: <UserPanel /> 
+      {
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: "profile",
+            element: <UserPanel />
+          },
+        ],
       },
-      { 
-        path: "admin", 
-        element: <Admin /> 
-      }
+      {
+        element: <ProtectedRoute allowedRoles={["ADMIN", "ROLE_ADMIN"]} />,
+        children: [
+          {
+            path: "admin",
+            element: <Admin />
+          },
+        ],
+      },
     ],
   },
 ]);

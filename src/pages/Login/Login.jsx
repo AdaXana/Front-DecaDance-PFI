@@ -1,10 +1,9 @@
-// import LoginForm from "../../components/organisms/LoginForm/LoginForm";
+import LoginForm from "../../components/organisms/LoginForm/LoginForm";
 
 const Login = () => {
   return (
     <>
-    <p>Login</p>
-        {/* <LoginForm /> */}
+        <LoginForm />
     </>
   );
 };

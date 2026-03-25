@@ -3,17 +3,20 @@ import { AuthContext } from "./AuthContext";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    const stored = localStorage.getItem("user");
-    console.log("stored:", stored);
-    console.log("parsed:", JSON.parse(stored));
-    return stored ? JSON.parse(stored) : null;
+    try {
+      const stored = localStorage.getItem("user");
+      return stored ? JSON.parse(stored) : null;
+    } catch (error) {
+      console.error("Error parseando el usuario del localStorage", error);
+      return null;
+    }
   });
 
-  console.log("user en AuthProvider:", user);
-
-  const login = (userData) => {
+  const login = (userData, token) => {
+    if (!userData || !token)
+      return;
     localStorage.setItem("user", JSON.stringify(userData));
-    //localStorage.setItem("token", userData.token);
+    localStorage.setItem("token", token);
     setUser(userData);
   };
 
@@ -28,9 +31,11 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(updated));
     setUser(updated);
   };
+
   return (
     <AuthContext.Provider value={{ user, login, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );
+
 };
