@@ -5,11 +5,11 @@ import authService from '../../../services/apiAuth';
 import FormField from '../../molecules/FormField/FormField';
 import Button from '../../atoms/Button/Button';
 import styles from './login-form.module.css';
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import EyeIcon from '../../atoms/Icons/EyeIcon';
 
 const LoginForm = () => {
     const [credentials, setCredentials] = useState({ username: '', password: '' });
-    const [error, setError] = useState(null);
+    const [serverErrors, setServerErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
 
     const { login } = useAuth();
@@ -20,6 +20,9 @@ const LoginForm = () => {
             ...credentials,
             [e.target.name]: e.target.value
         });
+        if (serverErrors[e.target.name] || serverErrors.general) {
+            setServerErrors({ ...serverErrors, [e.target.name]: null, general: null });
+        }
     };
 
     const togglePassword = () => {
@@ -28,17 +31,14 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(null);
         try {
             const response = await authService.login(credentials);
             const authHeader = response.headers['authorization'] || response.headers['Authorization'];
             const token = authHeader.replace('Bearer ', '');
-
             const userData = {
                 username: credentials.username,
                 role: credentials.username === 'admin' ? 'ADMIN' : 'USER'
             };
-
             login(userData, token);
             if (userData.role === 'ADMIN') {
                 navigate('/admin');
@@ -46,8 +46,12 @@ const LoginForm = () => {
                 navigate('/');
             }
         } catch (err) {
-            console.error("Error en la petición:", err);
-            setError("Error de conexión o credenciales incorrectas.");
+            console.error("Error en el login:", err);
+            if (err.response && err.response.data) {
+                setServerErrors(err.response.data);
+            } else {
+                setServerErrors({ general: "No se pudo conectar con el servidor." });
+            }
         }
     };
 
@@ -57,7 +61,7 @@ const LoginForm = () => {
                 <h1 className={styles.title}>INICIA<br />SESIÓN</h1>
 
                 <form onSubmit={handleSubmit}>
-                    {error && <p className={styles.errorText}>{error}</p>}
+                    {serverErrors.general && <p className={styles.errorText}>{serverErrors.general}</p>}
                     <FormField
                         label="Username"
                         type="text"
@@ -66,6 +70,7 @@ const LoginForm = () => {
                         value={credentials.username}
                         onChange={handleChange}
                         placeholder="Introduce tu usuario: username"
+                        error={serverErrors.username}
                     />
                     <FormField
                         label="Contraseña"
@@ -75,15 +80,8 @@ const LoginForm = () => {
                         value={credentials.password}
                         onChange={handleChange}
                         placeholder="Introduce tu contraseña: ********"
-                        icon={
-                            <span onClick={togglePassword} className={styles.eyeIconContainer}>
-                                {showPassword ? (
-                                    <AiOutlineEye className={styles.eyeIcon} title="Ocultar contraseña" />
-                                ) : (
-                                    <AiOutlineEyeInvisible className={styles.eyeIcon} title="Mostrar contraseña" />
-                                )}
-                            </span>
-                        }
+                        icon={<EyeIcon showPassword={showPassword} togglePassword={togglePassword} />}
+                        error={serverErrors.password}
                     />
                     <Link to="#" className={styles.forgotPassword}>¿Olvidaste tu contraseña?</Link>
                     <div className={styles.submitContainer}>
