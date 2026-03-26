@@ -94,3 +94,30 @@ Para evitar la ruptura de la inmersión visual con alertas nativas del navegador
 1. **Animaciones Fluidas:** Integración de bibliotecas como Framer Motion para la revelación del año en las cartas (efecto *flip*) y transiciones entre turnos.
 2. **Drag & Drop:** Implementación de mecánicas de arrastrar y soltar para colocar las cartas de canciones directamente en la línea temporal.
 3. **WebSockets:** Transición de validaciones manuales a actualizaciones en tiempo real para que todos los jugadores vean las acciones del oponente sin recargar o consultar constantemente al servidor.
+
+
+-----------
+
+
+## 📜 Reglas del Juego: DecaDance
+
+DecaDance pone a prueba tu intuición y cultura musical. El objetivo es simple, pero el reto crece en cada turno: **ser el primer jugador en construir una línea temporal perfecta de 10 canciones ordenadas cronológicamente por su año de lanzamiento.**
+
+### 🎯 Preparación de la Partida
+* Pueden participar de **2 a 4 jugadores** (requiere al menos un Host registrado).
+* Al iniciar, cada jugador recibe **una carta inicial** que se coloca en su tablero. Esta será la base de su línea temporal.
+* Cada jugador comienza con un set de **"Púas"**, que representan sus vidas o comodines durante la partida.
+
+### 🔄 Dinámica del Turno
+1. **Robar y Escuchar:** Al inicio de tu turno, se revela una nueva carta de canción del mazo central (artista y título).
+2. **Posicionar:** Debes adivinar en qué lugar de tu línea temporal encaja la nueva canción respecto a las que ya tienes. ¿Salió antes, después, o justo en medio?
+3. **Revelación:** Una vez confirmada tu decisión, la carta se voltea para revelar su **año de lanzamiento**.
+4. **Resolución:**
+   * **¡Acierto!** La carta se añade a tu línea temporal. Estás un paso más cerca de la victoria.
+   * **¡Fallo!** La carta se descarta. 
+
+### 🎸 Uso de las Púas (Vidas/Retos)
+Las Púas son el recurso estratégico del juego. Si fallas al colocar una carta o decides arriesgarte a retar el turno de un oponente, consumirás una púa. Si te quedas sin púas, estarás en desventaja en los momentos críticos de la partida.
+
+### 🏆 Fin de la Partida
+La tensión aumenta a medida que tu línea temporal crece (¡los huecos entre años son cada vez más estrechos!). El juego termina en el momento exacto en que un jugador logra colocar correctamente su **décima carta**. Ese jugador es coronado como el maestro absoluto de la pista de baile temporal.
