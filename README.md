@@ -4,7 +4,7 @@ DecaDance es una aplicación web interactiva basada en un juego de cartas y lín
 
 Este repositorio contiene el **Frontend** desarrollado para ofrecer una experiencia de usuario inmersiva, con una estética visual Cyberpunk, gestión de estado en tiempo real y una arquitectura basada en componentes modulares.
 
-🔗 **Repositorio del Backend:** [Back-DecaDance-PFI](https://github.com/TU_USUARIO/Back-DecaDance-PFI)
+🔗 **Repositorio del Backend:** [Back-DecaDance-PFI](https://github.com/AdaXana/Back-DecaDance-PFI)
 
 ---
 
