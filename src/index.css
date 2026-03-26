@@ -31,7 +31,8 @@
   --color-neon-yellow: #FFDE00;
   --color-neon-lime: #39FF14;
   --color-neon-cyan: #00F0FF;
-
+  --color-neon-red: #FF0033;
+  
   --color-bg-input: #FFFFFF;
   --color-bg-void: #120A1F;
   --color-bg-glass-dark: rgba(20, 10, 30, 0.6);
@@ -39,6 +40,7 @@
 
   --glow-orange: 0px 0px 20px rgba(255, 107, 0, 0.5);
   --glow-fuchsia: 0px 0px 15px rgba(225, 0, 255, 0.5);
+  --glow-red: 0 0 10px rgba(255, 0, 51, 0.7);
   --border-glass: 1px solid rgba(255, 255, 255, 0.1);
 
   --radius-sm: 8px;

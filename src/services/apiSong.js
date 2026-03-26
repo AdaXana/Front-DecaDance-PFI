@@ -50,7 +50,13 @@ const songService = {
   deleteSong: async (id) => {
     const response = await api.delete(`/songs/${id}`);
     return response.data;
-  }
+  },
+
+  searchDeezer: async (query) => {
+    const response = await api.get(`/songs/search-deezer?query=${query}`);
+    return response.data;
+  },
+
 };
 
 export default songService;
