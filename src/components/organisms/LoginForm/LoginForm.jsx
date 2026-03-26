@@ -79,7 +79,7 @@ const LoginForm = () => {
                         name="password"
                         value={credentials.password}
                         onChange={handleChange}
-                        placeholder="Introduce tu contraseña: ********"
+                        placeholder="********"
                         icon={<EyeIcon showPassword={showPassword} togglePassword={togglePassword} />}
                         error={serverErrors.password}
                     />
