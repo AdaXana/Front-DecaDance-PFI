@@ -1,0 +1,109 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+}
+
+.formWrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    color: var(--color-text-main);
+    text-align: left;
+    font-size: 60px;
+    font-weight: var(--weight-bold);
+    margin-bottom: 3rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.errorText {
+    color: var(--color-neon-orange);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: var(--text-error);
+    background-color: rgba(255, 107, 0, 0.1);
+    padding: 10px;
+    border-radius: var(--radius-sm);
+}
+
+.successText {
+    color: var(--color-neon-lime);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: var(--text-base);
+    background-color: rgba(57, 255, 20, 0.1);
+    padding: 10px;
+    border-radius: var(--radius-sm);
+}
+
+.termsLink {
+  color: var(--color-neon-fuchsia);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+}
+.termsLink:hover {
+  text-shadow: var(--glow-fuchsia);
+}
+
+.submitContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.socialDivider {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 3rem 0 1rem;
+}
+
+.socialDivider::before,
+.socialDivider::after {
+    content: '';
+    flex: 1;
+    border-bottom: var(--border-glass);
+}
+
+.socialDivider::before { margin-right: 1.5em; }
+.socialDivider::after { margin-left: 1.5em; }
+
+.socialButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.loginContainer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: var(--text-mini);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
+}
+
+.loginLink {
+    color: var(--color-neon-fuchsia);
+    text-decoration: none;
+    font-weight: var(--weight-bold);
+    margin-left: 8px;
+    transition: var(--transition-soft);
+}
+
+.loginLink:hover {
+    text-shadow: var(--glow-fuchsia);
+}

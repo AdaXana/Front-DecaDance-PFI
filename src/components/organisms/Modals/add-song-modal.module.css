@@ -1,0 +1,141 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-glass-dark);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: var(--color-bg-void);
+  border: var(--border-glass);
+  border-radius: var(--radius-md);
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--glow-fuchsia);
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: var(--border-glass);
+}
+
+.modalHeader h2 {
+  color: var(--color-text-main);
+  font-family: var(--font-primary);
+  font-size: var(--text-h4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: var(--text-h3);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: var(--transition-soft);
+}
+
+.closeBtn:hover {
+  color: var(--color-neon-red);
+  text-shadow: var(--glow-red);
+}
+
+.modalBody {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.helpText {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+
+.loadingText {
+  text-align: center;
+  color: var(--color-neon-cyan);
+  font-weight: var(--weight-bold);
+}
+
+.errorText {
+  text-align: center;
+  color: var(--color-neon-red);
+  font-size: var(--text-error);
+}
+
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 12px 20px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: var(--border-glass);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-soft);
+}
+
+.resultItem:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-neon-cyan);
+}
+
+.resultCover {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resultInfo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 4px;
+}
+
+.resultTitle {
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+  color: var(--color-text-main);
+}
+
+.resultArtist {
+  font-size: var(--text-mini);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.btnSpecific {
+  width: 140px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  flex-shrink: 0;
+  margin-left: auto;
+  font-size: var(--text-mini);
+  letter-spacing: 1px;
+}

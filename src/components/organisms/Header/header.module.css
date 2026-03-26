@@ -1,0 +1,17 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg-headerfooter);
+  height: 64px;
+  padding: 0 16px;
+  width: 100%;
+
+  border-bottom: var(--border-glass);
+}
+
+.actionIcons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

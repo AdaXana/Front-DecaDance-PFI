@@ -1,0 +1,30 @@
+.heroContainer {
+  width: 100%;
+  position: relative;
+  min-height: 60vh;
+  background-image:
+    linear-gradient(to bottom, rgba(18, 10, 31, 0.8), rgba(18, 10, 31, 0.4)),
+    url('../../../assets/HeroHomeBG.png');
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 100px 24px;
+}
+
+.heroSubtitle {
+  font-size: var(--text-base);
+  color: var(--color-text-main);
+  font-weight: var(--weight-regular);
+  max-width: 280px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}

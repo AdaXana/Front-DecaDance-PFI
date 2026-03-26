@@ -1,0 +1,49 @@
+.boardContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 16px;
+}
+
+.mainTitle {
+    color: var(--color-neon-fuchsia);
+    font-size: 12px;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.resultsCount {
+    color: var(--color-text-muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionTitle {
+    color: var(--color-neon-fuchsia);
+    font-size: 10px;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 12px 0;
+}
+
+.cardList {
+    display: flex;
+    flex-direction: column;
+}

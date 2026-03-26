@@ -1,0 +1,11 @@
+.label {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: var(--text-mini);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-align: left;
+}
