@@ -1,0 +1,114 @@
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-bg-glass);
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 16px;
+    transition: var(--transition-soft);
+    border-left: 4px solid transparent;
+}
+
+.active {
+    background-color: var(--color-bg-glass-light);
+}
+
+.inactive {
+    background-color: var(--color-bg-glass-dark);
+    opacity: 0.6;
+}
+
+.leftContent {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.inactive .coverWrapper {
+    filter: grayscale(0.5) brightness(0.7);
+}
+
+.textContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.title {
+    color: var(--color-text-main);
+    font-size: var(--text-base);
+    font-weight: var(--weight-bold);
+    margin: 0;
+    transition: var(--transition-soft);
+}
+
+.inactive .title {
+    color: var(--color-text-muted);
+}
+
+.subtitle {
+    color: var(--color-text-muted);
+    font-size: var(--text-mini);
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.subtitleContainer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.editInput,
+.editInputSmall,
+.editInputYear {
+    background: rgba(0, 209, 255, 0.05);
+    border: none;
+    border-bottom: 2px solid #00d1ff;
+    color: #ffffff;
+    outline: none;
+    font-family: inherit;
+    padding: 2px 4px;
+    transition: all 0.2s ease;
+}
+
+.editInput:focus,
+.editInputSmall:focus,
+.editInputYear:focus {
+    box-shadow: 0 4px 10px -4px rgba(0, 209, 255, 0.5);
+}
+
+.editInput {
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.editInputSmall {
+    font-size: 0.9rem;
+    width: 140px;
+}
+
+.editInputYear {
+    font-size: 0.9rem;
+    width: 60px;
+    text-align: center;
+}
+
+.editInputYear::-webkit-inner-spin-button,
+.editInputYear::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.separator {
+    color: #888888;
+}

@@ -1,7 +1,7 @@
 import styles from './button.module.css';
 import { useNavigate } from 'react-router-dom';
 
-const Button = ({ text, BtnClass, path, type = "button", onClick, disabled, icon }) => {
+const Button = ({ text, BtnClass, className, path, type = "button", onClick, disabled, icon }) => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
@@ -16,7 +16,7 @@ const Button = ({ text, BtnClass, path, type = "button", onClick, disabled, icon
   return (
     <button
       type={type}
-      className={styles[BtnClass]}
+      className={`${styles[BtnClass]} ${className || ''}`}
       onClick={handleClick}
       disabled={disabled}
     >
